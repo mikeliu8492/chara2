@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<div class="table-outer">
+	<div class="table-inner-narrow">
+		{% if current_user.is_authenticated %}
+		<div class="input-group" style="margin: auto; width: 50%;">
+      <span class="input-group-btn">
+        <button class="btn btn-default">Set Location</button>
+      </span>
+			<input type="text" class="form-control" placeholder="room number">
+		</div>
+		<br>
+		<div>
+			<a href="{{ url_for('auth.queue', course_id='select') }}" class="btn btn-default btn btn-block"> Enter Queue </a>
+		</div>
+		<br>
+		<div>
+			<a href="{{ url_for('auth.logout') }}" class="btn btn-default btn btn-block"> Logout</a>
+		</div>
+		{% else %}
+		<div class="table-outer">
+			<div class="table-inner-narrow">
+				<h1 class="cover-heading"> Welcome! </h1>
+				<p class="lead">Chara is a set of web applications designed for your computer science courses. Please
+					log in to continue.</p>
+				<a href="{{ url_for('auth.login') }}" class="btn btn-default">Login</a>
+			</div>
+		</div>
+		{% endif %}
+		{% endblock %}

@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<div class="table-outer">
+	<div class="table-inner-narrow">
+		{% if course_id == 'select' %}
+		<div class="row">
+			<div class="col-xs-6 col-md-3">
+				<a href="{{ url_for('auth.queue', course_id='CS125') }}" class="thumbnail">
+					<div class="caption">
+						<h3> CS 125 </h3>
+					</div>
+				</a>
+			</div>
+
+			<div class="col-xs-6 col-md-3">
+				<a href="{{ url_for('auth.queue', course_id='CS225') }}" class="thumbnail">
+					<div class="caption">
+						<h3> CS 225 </h3>
+					</div>
+				</a>
+			</div>
+
+			<div class="col-xs-6 col-md-3">
+				<a href="{{ url_for('auth.queue', course_id='CS233') }}" class="thumbnail">
+					<div class="caption">
+						<h3> CS 233 </h3>
+					</div>
+				</a>
+			</div>
+
+			<div class="col-xs-6 col-md-3">
+				<a href="{{ url_for('auth.queue', course_id='CS241') }}" class="thumbnail">
+					<div class="caption">
+						<h3> CS 241 </h3>
+					</div>
+				</a>
+			</div>
+
+			<div class="col-xs-6 col-md-3">
+				<a href="{{ url_for('auth.queue', course_id='ECE391') }}" class="thumbnail">
+					<div class="caption">
+						<h3> ECE 391 </h3>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+{% else %}
+<div class="table-outer">
+	<div class="queue">
+		<div class="page-header">
+			<h2> {{ course_id }}
+				<small> {{ course_name }}</small>
+			</h2>
+		</div>
+		<div class="panel list-group">
+			<a class="list-group-item" data-toggle="collapse" data-target="#q"> New question </a>
+			<div id="q" class="collapse">
+				<form action="{{ url_for('auth.queue', course_id=course_id) }}" method="POST">
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Topic" name="topic" autocomplete="off">
+						<input type="text" class="form-control" placeholder="Location" name="location" autocomplete="off">
+					</div>
+					<input type="submit" style="text-align: left; width: 100%;" class="btn btn-primary" value="Submit">
+				</form>
+			</div>
+		</div>
+		<table class="table">
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Location</th>
+				<th>Topic</th>
+				<th>Actions</th>
+			</tr>
+			</thead>
+
+			<tbody>
+			{% for question in questions %}
+			<tr>
+				<td class="col-md-2">{{question.user_full_name()}}</td>
+				<td class="col-md-2">{{question.location()}}</td>
+				<td class="col-md-2">{{ question.topic }}</td>
+				<td class="col-md-2">
+					<a class="btn btn-default btn-sm" style="width: 49%;"> Edit </a>
+					<a class="btn btn-default btn-sm" style="width: 49%;"> Delete </a>
+				</td>
+			</tr>
+			{% endfor %}
+			</tbody>
+
+		</table>
+	</div>
+</div>
+{% endif %}
+{% endblock %}

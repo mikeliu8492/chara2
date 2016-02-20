@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="../../favicon.ico">
+
+	<title>Chara 2.0</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="../../static/css/bootstrap.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="../../static/css/main.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="{{ url_for('auth.home') }}">Chara 2.0</a>
+			<ul class="nav navbar-nav">
+				<li><a href="{{ url_for('auth.queue', course_id='select') }}">Queue</a></li>
+				<li><a href="{{ url_for('auth.gradebook') }}">Gradebook</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+  {% for category, message in get_flashed_messages(with_categories=true) %} 
+<div class="alert alert-{{category}} alert-dismissable fade in"> 
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	  {{ message }} 
+</div>
+{% endfor %}
+<div class="container">
+	{% block container %}{% endblock %}
+</div>
+<div class="footer">
+	<p> 2016 Team Chara 2.0 </p>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../static/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../../static/js/bootstrap.js"></script>
+</body>
+</html>
