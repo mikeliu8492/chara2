@@ -13,9 +13,9 @@ AD_PROVIDER_URL = 'ldap://ad.uillinois.edu:389/'
 AD_BASE_DN = 'cn=%s,OU=People,DC=ad,DC=uillinois,DC=edu'
 LDAP_PROVIDER_URL = 'ldap://ldap.illinois.edu:389'
 LDAP_BASE_DN = 'OU=People,DC=uiuc,DC=edu'
-if os.environ.get('DATABASE_URL') is None:
-   SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
-else:
-   SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
+#if os.environ.get('DATABASE_URL') is None:
+#   SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
+#else:
+SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL','postgresql://fopafuihjjtpms:fP8IKnMZoTRe74hZO2iqj0S-yF/dfvi4vsnfolh8h')
 SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
 SQLALCHEMY_TRACK_MODIFICATIONS = True
