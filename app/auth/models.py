@@ -112,8 +112,8 @@ class Queue(db.Model):
    __tablename__ = 'queue'
    id = db.Column(db.Integer, primary_key=True)
    timestamp = db.Column(db.DateTime, nullable=False, default=datetime.now())
-   course_id = db.Column(db.String(16), unique=True, nullable=False)
-   course_name = db.Column(db.String(64), unique=True)
+   course_id = db.Column(db.String(16), nullable=False)
+   course_name = db.Column(db.String(64))
 
    questions = relationship("Question", backref="queue")
    active_question_id = db.Column(db.Integer, nullable=True)
