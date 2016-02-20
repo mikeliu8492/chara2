@@ -11,6 +11,7 @@ AD_BASE_DN = 'cn=%s,OU=People,DC=ad,DC=uillinois,DC=edu'
 LDAP_PROVIDER_URL = 'ldap://ldap.illinois.edu:389'
 LDAP_BASE_DN = 'OU=People,DC=uiuc,DC=edu'
 if os.environ.get('DATABASE_URL') is None:
+   print("database url not found")
    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
 else:
    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']

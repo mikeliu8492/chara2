@@ -12,7 +12,7 @@ class User(db.Model):
    __tablename__ = 'user'
    id = db.Column(db.Integer, primary_key=True)
    question_id = relationship('Question', backref='person', uselist=False)
-   course_id = db.Column(db.Integer, db.ForeignKey('queue.course_id'))
+   course_id = db.Column(db.String, db.ForeignKey('queue.course_id'))
 
    netid = db.Column(db.String(8), unique=True, nullable=False)
    first_name = db.Column(db.String(16))
