@@ -5,7 +5,7 @@ SECRET_KEY = 'chara'
 WTF_CSRF_ENABLED = True
 WTF_CSRF_SECRET_KEY = 'csrf-chara'
 
-os.environ['DATABASE_URL'] = 'postgres://xykwnwapszxeof:-1JTJTZmqvM_V8c7mdIcjFfAXT@ec2-107-20-148-211.compute-1.amazonaws.com:5432/d73ip15tss408a'
+os.environ['DATABASE_URL'] = 'postgres://fopafuihjjtpms:fP8IKnMZoTRe74hZO2iqj0S-yF@ec2-54-83-198-111.compute-1.amazonaws.com:5432/dfvi4vsnfolh8h'
 
 LDAP_PROTOCOL_VERSION = 3
 AD_PROVIDER_URL = 'ldap://ad.uillinois.edu:389/'
