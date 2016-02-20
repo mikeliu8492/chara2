@@ -16,7 +16,7 @@ app.register_blueprint(auth)
 db.create_all()
 
 from app.auth import models
-
+"""
 if models.Queue.query.count() == 0:
    courses = [('CS125', 'Introduction to Programming'),
               ('CS225', 'Data Structures and Programming Principles'),
@@ -29,3 +29,4 @@ if models.Queue.query.count() == 0:
       queue.course_name = course[1]
       db.session.add(queue)
    db.session.commit()
+"""
