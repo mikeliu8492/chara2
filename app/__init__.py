@@ -13,7 +13,7 @@ login_manager.login_view = 'login'
 
 from app.auth.views import auth
 app.register_blueprint(auth)
-db.create_all()
+#db.create_all()
 
 from app.auth import models
 if models.Queue.query.count() == 0:
