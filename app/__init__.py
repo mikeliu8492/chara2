@@ -14,7 +14,7 @@ login_manager.login_view = 'login'
 from app.auth.views import auth
 app.register_blueprint(auth)
 db.create_all()
-
+"""
 from app.auth import models
 if models.Queue.query.count() == 0:
    courses = [('CS125', 'Introduction to Programming'),
@@ -28,3 +28,4 @@ if models.Queue.query.count() == 0:
       queue.course_name = course[1]
       db.session.add(queue)
    db.session.commit()
+"""
