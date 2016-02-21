@@ -1,5 +1,4 @@
 import os
-
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 SECRET_KEY = 'chara'
@@ -16,6 +15,7 @@ LDAP_BASE_DN = 'OU=People,DC=uiuc,DC=edu'
 #if os.environ.get('DATABASE_URL') is None:
 #   SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
 #else:
-SQLALCHEMY_DATABASE_URI = 'postgres://erdwvldwaunpri:A9EnrWRDx_ZR9PtMAMZs3bN77e@ec2-54-227-245-197.compute-1.amazonaws.com:5432/dauoltmmkkfj08'
+SQLALCHEMY_DATABASE_URI = 'postgresql://' + os.path.join(basedir, 'app.db')
+#'postgres://erdwvldwaunpri:A9EnrWRDx_ZR9PtMAMZs3bN77e@ec2-54-227-245-197.compute-1.amazonaws.com:5432/dauoltmmkkfj08'
 SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
 SQLALCHEMY_TRACK_MODIFICATIONS = True
