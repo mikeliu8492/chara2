@@ -1,6 +1,7 @@
 #!flask/bin/python
 from flask import Flask
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.sqlalchemy import SQLAlchemy,
+from migrate.exceptions import DatabaseAlreadyControlledError
 from flask_login import LoginManager
 
 app = Flask(__name__)
@@ -13,7 +14,10 @@ login_manager.login_view = 'login'
 
 from app.auth.views import auth
 app.register_blueprint(auth)
-db.create_all()
+try:
+   db.create_all()
+except migrate.exceptions.DatabaseAlreadyControlledError:
+   pass
 
 from app.auth import models
 if models.Queue.query.count() == 0:
